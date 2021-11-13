@@ -5,14 +5,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
 const config = require('./webpack.config')
 
-module.exports = merge(config,{
-    node: 'production',
+module.exports = merge(config, {
+  mode: 'production',
 
-    output: {
-        path: path.join(__dirname, 'public')
-    },
+  output: {
+    path: path.join(__dirname, 'public')
+  },
 
-    plugin: [
-        new CleanWebpackPlugin()
-    ]
-    })
+  plugins: [
+    new CleanWebpackPlugin()
+  ]
+})

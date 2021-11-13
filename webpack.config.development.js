@@ -4,15 +4,17 @@ const path = require('path')
 const config = require('./webpack.config')
 
 module.exports = merge(config, {
-    node: 'development',
-    
-    devtool: 'inline-source-map',
+  mode: 'development',
 
-    devServer: {
-        writeToDisk: true
-    },
+  devtool: 'inline-source-map',
 
-    output: {
-        path: path.resolve(__dirname, 'public')
+  devServer: {
+    devMiddleware:{
+      writeToDisk: true
     }
+  },
+
+  output: {
+    path: path.resolve(__dirname, 'public')
+  }
 })
