@@ -39,13 +39,60 @@ module.exports = {
         {
           from: './shared',
           to: ''
-        },
-      ],
+        }
+      ]
     }),
 
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
+
   ],
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+        }
+      },
+
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '',
+            },
+          },
+
+          {
+            loader: 'css-loader',
+          },
+
+          {
+            loader: 'postcss-loader',
+          },
+
+          {
+            loader: 'sass-loader',
+          }
+          
+        ]
+      },
+
+      {
+        test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name].[hash].[ext]',
+        }
+      },
+
+
+    ]
+  }
 };
