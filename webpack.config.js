@@ -80,19 +80,17 @@ module.exports = {
           {
             loader: 'sass-loader',
           }
-          
+
         ]
       },
 
       {
         test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: '[name].[hash].[ext]',
-        }
+        loader: 'file-loader',
+        options: {}
       },
 
-
+      
     ]
   }
 };
