@@ -87,7 +87,11 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|jpe?g|svg|woff2?|fnt|webp|mp4)$/,
         loader: 'file-loader',
-        options: {}
+        options: {
+          name (file) {
+            return '[name].[ext]'
+          }
+        }
       },
 
       
