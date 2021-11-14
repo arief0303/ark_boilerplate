@@ -15,7 +15,7 @@ const dirStyles = path.join(__dirname, 'styles')
 const dirNode = 'node_modules'
 
 // test dir
-console.log(dirApp,dirAssets,dirShared,dirStyles)
+console.log(dirApp, dirAssets, dirShared, dirStyles)
 
 module.exports = {
   stats: 'summary',
@@ -29,14 +29,14 @@ module.exports = {
     modules: [
       dirApp,
       dirAssets,
-      dirShared, 
+      dirShared,
       dirStyles,
       dirNode
     ]
   },
 
   plugins: [
-    new webpack.DefinePlugin({IS_DEVELOPMENT}),
+    new webpack.DefinePlugin({ IS_DEVELOPMENT }),
 
     new CopyPlugin({
       patterns: [
@@ -63,7 +63,7 @@ module.exports = {
         ],
       },
     }),
-    
+
     new CleanWebpackPlugin()
   ],
 
@@ -106,7 +106,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           outputPath: 'assets',
-          name (file) {
+          name(file) {
             return '[name].[ext]'
           }
         }
@@ -114,7 +114,7 @@ module.exports = {
 
       {
         test: /\.(jpe?g|png|gif|svg|webp)$/i,
-        use: [{loader: ImageMinimizerPlugin.loader,}]
+        use: [{ loader: ImageMinimizerPlugin.loader, }]
       },
 
       {
