@@ -9,7 +9,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev'
 
 const dirApp = path.join(__dirname, 'app')
-const dirAssets = path.join(__dirname, 'assets');
+const dirAssets = path.join(__dirname, 'assets')
 const dirShared = path.join(__dirname, 'shared')
 const dirStyles = path.join(__dirname, 'styles')
 const dirNode = 'node_modules'
