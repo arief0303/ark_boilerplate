@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
@@ -17,6 +18,8 @@ const dirNode = 'node_modules'
 console.log(dirApp,dirAssets,dirShared,dirStyles)
 
 module.exports = {
+  stats: 'summary',
+
   entry: [
     path.join(dirApp, 'index.js'),
     path.join(dirStyles, 'index.scss')
@@ -60,6 +63,8 @@ module.exports = {
         ],
       },
     }),
+    
+    new CleanWebpackPlugin()
   ],
 
   module: {
